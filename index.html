@@ -11,7 +11,40 @@
     <title>Minesweeper</title>
 </head>
 <body>
-    <h1>Hello world</h1>
+
+    <main class="game">
+        <header class="header">
+            <article class="header__counter">0</article>
+            <button class="header__reset">
+                <use href="./assets/sprite.svg#neutral"></use>
+            </button>
+
+            <article class="header__counter">0</article>
+        </header>
+
+        <article class="game_board">
+            <article class="game__panel">
+                <header class="panel__header">
+                    <h1 class="panel__heading">Select Difficulty</h1>
+                </header>
+
+                <section class="panel__buttons">
+                    <button class="button">Easy</button>
+                    <button class="button">Normal</button>
+                    <button class="button">Expert</button>
+                </section>
+            </article>     
+        </article>
+
+        <article class="modal hide">
+            <section class="modal__content">
+                <h2 class="modal__text">You won!</h2>
+                <button class="modal__button">Play again</button>
+            </section>
+        </article>
+    </main>
+
+
 
     <script type="module" src="js/game.js"></script>
 </body>
