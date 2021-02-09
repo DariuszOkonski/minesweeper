@@ -27,6 +27,11 @@ html {
     margin-right: auto;
 }
 
+.game__board {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -121,6 +126,25 @@ html {
     background-color: #000;
     color: #fff;
     border-color: #000;
+}
+
+.border {
+    border: 0.3rem solid;
+}
+
+.border--convex {
+    border-color: var(--primary-color--dark) #fff #fff var(--primary-color--dark);
+
+}
+
+.border--concave {
+    border-color: #fff var(--primary-color--dark) var(--primary-color--dark) #fff;
+}
+
+.cell {
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
 }
 
 .hide {
