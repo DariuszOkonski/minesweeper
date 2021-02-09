@@ -1,7 +1,7 @@
 import { Cell } from './Cell.js';
 import { UI } from './UI.js';
 
-class Game {
+class Game extends UI {
     #config = {
         easy: {
             rows: 8,
@@ -26,8 +26,16 @@ class Game {
 
     #cells = [];
 
+    #board = null;
+
+
     initializeGame() {
-        this.#newGame()
+        this.#handleElements();
+        this.#newGame();
+    }
+
+    #handleElements() {
+        this.#board = this.getElement(this.UiSelectors.board);
     }
 
     #newGame(rows = this.#config.easy.rows, cols = this.#config.easy.cols, mines = this.#config.easy.mines) {
@@ -36,6 +44,7 @@ class Game {
         this.#numberOfMines = mines;
 
         this.#generateCells();
+        this.#renderBoard();
     }
 
     #generateCells() {
@@ -47,9 +56,17 @@ class Game {
             }
         }
     }
+
+    #renderBoard() {
+        this.#cells.flat().forEach(cell => {
+            this.#board.insertAdjacentHTML('beforeend', cell.createElement())
+            cell.element = cell.getElement(cell.UiSelectors.cell)
+        })
+    }
 }
 
 window.onload = function() {
     const game = new Game()
     game.initializeGame()
+    console.log(game)
 }
